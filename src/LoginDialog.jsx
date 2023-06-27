@@ -12,6 +12,7 @@ import {
     TextField,
 } from "@mui/material";
 
+import { SessionContext } from "./App";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 
@@ -19,7 +20,10 @@ const LoginDialog = (props) => {
     const {
         onClose,
         open,
+        loadUser,
     } = props;
+
+    const sessionData = React.useContext(SessionContext);
 
     const [email, setEmail] = React.useState("");
     const [password, setPassword] = React.useState("");
@@ -32,6 +36,16 @@ const LoginDialog = (props) => {
         setPassword("");
         setShowPassword(false);
     }, [onClose]);
+
+    const handleLogin = () => {
+        let user = sessionData.db.getUser(email);
+        if (!user || user.password !== password) {
+            alert("Wrong username/pass, REMOVE THIS AND ADD AN MUI ALERT");
+        } else {
+            loadUser(user);
+            handleClose();
+        }
+    }
 
     return (
         <Box>
@@ -59,7 +73,7 @@ const LoginDialog = (props) => {
                 <DialogActions sx={{ display: "flex", justifyContent: "flex-end", px: 2 }}>
                     <Stack direction="row">
                         <Button onClick={handleClose}> Cancel </Button>
-                        <Button fullWidth> Login </Button>
+                        <Button onClick={handleLogin}> Login </Button>
                     </Stack>
                 </DialogActions>
             </Dialog>

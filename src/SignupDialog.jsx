@@ -11,6 +11,7 @@ import {
     TextField,
 } from "@mui/material";
 
+import { SessionContext } from "./App";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 
@@ -19,6 +20,8 @@ const SignupDialog = (props) => {
         onClose,
         open,
     } = props;
+
+    const sessionData = React.useContext(SessionContext);
 
     const [name, setName] = React.useState("");
     const [email, setEmail] = React.useState("");
@@ -33,6 +36,15 @@ const SignupDialog = (props) => {
         setPassword("");
         setShowPassword(false);
     }, [onClose]);
+
+    const handleSignup = () => {
+        if (!sessionData.db.emailTaken(email)) {
+            sessionData.db.addUser(name, email, password);
+            handleClose();
+        } else {
+            alert("Email already taken, REMOVE THIS AND ADD AN MUI ALERT");
+        }
+    }
 
     return (
         <Box>
@@ -60,16 +72,11 @@ const SignupDialog = (props) => {
 
                 <DialogActions>
                     <Button onClick={handleClose}> Cancel </Button>
-                    <Box sx={{ position: "relative" }}>
-                        <Button disabled={!name || !email || !password}
-                        >
-                            Sign Up
-                        </Button>
-                    </Box>
+                    <Button disabled={!name || !email || !password} onClick={handleSignup}> Sign Up </Button>
                 </DialogActions>
             </Dialog>
         </Box>
     );
-}
+};
 
 export default SignupDialog;
