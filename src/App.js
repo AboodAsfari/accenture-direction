@@ -1,24 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import {
+  Alert,
+  AppBar,
+  Box,
+  CssBaseline,
+  FormControlLabel,
+  ThemeProvider,
+  Toolbar,
+  Typography,
+  Snackbar,
+  Stack,
+  Button,
+} from "@mui/material";
+import LoginDialog from "./LoginDialog";
+import CareerAdvice from "./CareerAdvice";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <AppBar position="sticky" component="nav">
+        <Toolbar>
+          <Typography variant="h6" component="div" sx={{ textAlign: "center" }}>
+              (LOGO HERE) Direction- Career Advisory
+          </Typography>
+          <Stack direction={"row"} sx={{ position: "fixed", right: 20 }}>
+            <Button variant="container"> Log In </Button>
+            <Button variant="container"> Sign Up </Button>
+          </Stack>
+        </Toolbar>
+    </AppBar>
+
+    <CareerAdvice />
+
+    <LoginDialog open={false}></LoginDialog>
+    </>
   );
 }
 
