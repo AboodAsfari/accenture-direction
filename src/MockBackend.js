@@ -1,11 +1,12 @@
 class MockBackend {
     constructor() {
-        this.users = {"a": {name: "a", email: "a", password: "a"}};
+        this.users = {"a": {firstName: "Abood", lastName: "Asfari", email: "a", password: "a"}};
     }
 
-    addUser(name, email, password) {
+    addUser(firstName, lastName, email, password) {
         this.users[email] = {
-            name,
+            firstName,
+            lastName,
             email,
             password
         }

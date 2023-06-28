@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React from "react";
 import {
     Alert,
     Box,
@@ -19,11 +19,13 @@ import VisibilityOff from "@mui/icons-material/VisibilityOff";
 const SignupPage = (props) => {
     const {
         onClose,
+        loadUser,
     } = props;
 
     const sessionData = React.useContext(SessionContext);
 
-    const [name, setName] = React.useState("");
+    const [firstName, setFirstName] = React.useState("");
+    const [lastName, setLastName] = React.useState("");
     const [email, setEmail] = React.useState("");
     const [password, setPassword] = React.useState("");
     const [isStudent, setIsStudent] = React.useState(true);
@@ -33,7 +35,8 @@ const SignupPage = (props) => {
 
     const handleSignup = () => {
         if (!sessionData.db.emailTaken(email)) {
-            sessionData.db.addUser(name, email, password);
+            sessionData.db.addUser(firstName, lastName, email, password);
+            loadUser(sessionData.db.getUser(email));
             onClose();
         } else {
             setSignupError(true);
@@ -51,8 +54,12 @@ const SignupPage = (props) => {
                     <Button variant={!isStudent ? "contained" : "outlined"} sx={{fontSize: 20, p: 4, px: 8}} onClick={() => setIsStudent(false)}> Employer </Button>
                 </Stack>
 
-                <TextField autoFocus margin="dense" id="name" label="Name" type="text" fullWidth 
-                    value={name} onChange={(e) => setName(e.target.value)}
+                <TextField autoFocus margin="dense" id="firstname" label="Last Name" type="text" fullWidth 
+                    value={firstName} onChange={(e) => setFirstName(e.target.value)}
+                />
+
+                <TextField margin="dense" id="lastname" label="First Name" type="text" fullWidth 
+                    value={lastName} onChange={(e) => setLastName(e.target.value)}
                 />
 
                 <TextField margin="dense" id="email" label="Email Address" type="email" value={email}
@@ -71,7 +78,7 @@ const SignupPage = (props) => {
                     }}
                 />
 
-                <Button variant="contained" disabled={!name || !email || !password} onClick={handleSignup} sx={{ fontSize: 20, mt: 5 }}> Sign Up </Button>
+                <Button variant="contained" disabled={!firstName || !lastName || !email || !password} onClick={handleSignup} sx={{ fontSize: 20, mt: 5 }}> Sign Up </Button>
 
                 <Collapse in={signupError}>
                     <Alert severity="error" sx={{ mt: 2 }}
