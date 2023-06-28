@@ -27,7 +27,7 @@ const AccountMenu = (props) => {
     const menuOpen = Boolean(anchorEl);
 
     return (
-        <Box sx={{ mr: 2 }}>
+        <Box>
             <IconButton color="inherit" onClick={(event) => setAnchorEl(event.target)}>
                 <AccountCircleRoundedIcon color="inherit" fontSize="large"/>
             </IconButton>
