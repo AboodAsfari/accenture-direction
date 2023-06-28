@@ -6,10 +6,12 @@ import {
   Stack,
   Button,
 } from "@mui/material";
-import LoginDialog from "./LoginDialog";
+import LoginPage from "./LoginPage";
 import CareerAdvice from "./CareerAdvice";
-import SignupDialog from "./SignupDialog";
+import SignupPage from "./SignupPage";
 import MockBackend from "./MockBackend";
+
+import EmojiEmotionsIcon from '@mui/icons-material/EmojiEmotions';
 
 const App = () => {
   const [sessionData, setSessionData] = React.useState({
@@ -27,18 +29,29 @@ const App = () => {
     }));
   }
 
+  const openLogin = () => {
+    setLoginOpen(true);
+    setSignupOpen(false);
+  }
+
+  const openSignup = () => {
+    setSignupOpen(true);
+    setLoginOpen(false);
+  }
+
   return (
     <>
     <AppBar position="sticky" component="nav">
         <Toolbar>
-          <Typography variant="h6" component="div" sx={{ textAlign: "center" }}>
-              (LOGO HERE) Unnamed Direction Thing AAAAAAAAAAAAAA
+          <EmojiEmotionsIcon />
+          <Typography variant="h6" component="div" sx={{ ml: 2, textAlign: "center" }}>
+              D1RECTION Career Advice
           </Typography>
           <Stack direction={"row"} sx={{ position: "fixed", right: 20 }}>
             { !sessionData.user ? 
               <>
-              <Button variant="container" onClick={() => setLoginOpen(true)}> Log In </Button>
-              <Button variant="container" onClick={() => setSignupOpen(true)}> Sign Up </Button>
+              <Button variant="container" onClick={openLogin}> Log In </Button>
+              <Button variant="container" onClick={openSignup}> Sign Up </Button>
               </> :
               <Button disableRipple variant="container" onClick={() => loadUser(null)}> Log Out </Button>
             }
@@ -47,10 +60,10 @@ const App = () => {
     </AppBar>
 
     <SessionContext.Provider value={sessionData}>
-      <CareerAdvice />
+      {!loginOpen && !signupOpen && <CareerAdvice /> }
 
-      <LoginDialog open={loginOpen} onClose={() => setLoginOpen(false)} loadUser={loadUser} />
-      <SignupDialog open={signupOpen} onClose={() => setSignupOpen(false)} />
+      {loginOpen && <LoginPage onClose={() => setLoginOpen(false)} openSignup={() => setSignupOpen(true)} loadUser={loadUser} />}
+      {signupOpen && <SignupPage onClose={() => setSignupOpen(false)} />}
     </SessionContext.Provider>
     </>
   );
