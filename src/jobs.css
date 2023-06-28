@@ -1,0 +1,173 @@
+.jobs-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.job-tiles-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    max-width: 1800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.job-tile {
+    width: 480px;
+    height: 300px;
+    background-color: #ffffff;
+    border-radius: 60px;
+    margin: 10px;
+    padding: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.job-tile:hover {
+    background-color: #d6d6d6;
+}
+
+.job-tile-content {
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.job-tile {
+    position: relative;
+
+}
+
+.job-tile .logo-container {
+    position: absolute;
+    top: 10px;
+    left: 25px;
+    width: 100px;
+    height: 100px;
+}
+
+.job-tile .logo {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    position: relative;
+}
+
+.job-details {
+    display: flex;
+    margin-left: 130px;
+    margin-top: 20px;
+    flex-direction: column;
+}
+
+.job-details h3 {
+    margin: 0;
+    margin-right: 10px;
+    font-size: 18px;
+    line-height: 1.2;
+    display: flex;
+    align-items: center;
+}
+
+.job-details h3::first-letter {
+    margin-right: 5px;
+}
+
+.job-details .location {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+    font-size: 14px;
+    color: #555555;
+    margin-left: 0;
+}
+
+.job-details .location p {
+    margin: 0;
+    margin-left: 0px;
+}
+
+.location {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+    font-size: 14px;
+    color: #555555;
+}
+
+.location-icon {
+    width: 11px;
+    height: 13px;
+    margin-right: 5px;
+    margin-left: -5px;
+}
+
+.location p {
+    margin: 0;
+}
+
+.location-gap {
+    margin-top: 30px;
+}
+
+.logo-button-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo-button {
+    width: 22px;
+    height: 22px;
+    margin-left: 10px;
+    fill: #742092;
+}
+
+
+.apply-button {
+    position: absolute;
+    top: 18%;
+    right: 30px;
+    transform: translateY(-50%);
+}
+
+.apply-button svg {
+    width: 35px;
+    height: 35px;
+}
+
+.line {
+    position: absolute;
+    bottom: 175px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    height: 2px;
+    background-color: #BFBFBF;
+}
+
+.title {
+    position: relative;
+    margin-top: 60px;
+}
+
+.title h2 {
+    text-align: left;
+    margin-left: -100px;
+}
+
+.redirect-button {
+    position: absolute;
+    bottom: -5px;
+    right: 60px;
+}
+
+.redirect-button svg {
+    width: 100px;
+    height: 100px;
+}
+
