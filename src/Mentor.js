@@ -13,6 +13,7 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import Button from '@mui/material/Button';  
+import { shadows } from '@mui/system';
 
 
 
@@ -27,14 +28,9 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
 }));
 
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
-    '&:nth-of-type(odd)': {
-        backgroundColor: theme.palette.action.hover,
-    },
+
+    backgroundColor: "#F5F5F5",
     // hide last border
-    '&:last-child td, &:last-child th': {
-        border: 0,
-    },
-    borderSpacing: '10px 10px 10px 10px',
 }));
 
 const StyledConnectButton = styled(Button)(({ theme }) => ({
@@ -51,7 +47,6 @@ const StyledDialog = styled(Dialog)`
     border-radius: 10px;
   }
 `;
-
 
 
 const Mentor = ({ degree, location, data }) => {
@@ -77,7 +72,9 @@ const Mentor = ({ degree, location, data }) => {
 
     return (
         <div>
-            <h1 align="center">Mentors</h1>
+            <div>
+                <p></p>
+            </div>
             <TableContainer component={Paper}>
                 <Table sx={{ minWidth: 700 }} aria-label="customized table">
                     <TableHead>
@@ -102,6 +99,7 @@ const Mentor = ({ degree, location, data }) => {
                             <StyledTableCell align="center" width={225}>{data[0].ment_desc}</StyledTableCell>
                             <StyledTableCell align="center" width={225}> <StyledConnectButton onClick={handleApply} variant="contained">Connnect</StyledConnectButton></StyledTableCell>
                         </StyledTableRow>
+                        <br></br>
                         <StyledTableRow onClick={handleRowClick}>
                             <StyledTableCell align="center">      <a href="https://google.com" target="_blank" rel="noreferrer">
                                 <img style={{ width: 80, height: 80 }}
@@ -114,9 +112,10 @@ const Mentor = ({ degree, location, data }) => {
                             <StyledTableCell align="center" width={225}>{data[0].ment_desc}</StyledTableCell>
                             <StyledTableCell align="center" width={225}> <StyledConnectButton onClick={handleApply} variant="contained">Connnect</StyledConnectButton></StyledTableCell>
                         </StyledTableRow>
+                        <br></br>
                         <StyledTableRow onClick={handleRowClick}>
                             <StyledTableCell align="center">      <a href="https://google.com" target="_blank" rel="noreferrer">
-                                <img style={{ width: 80, height: 80 }}
+                                <img style={{ width: 100, height: 100, borderRadius:50 }}
                                     src={data[0].ment_image}
                                     alt="example"
                                 />
@@ -135,7 +134,7 @@ const Mentor = ({ degree, location, data }) => {
                 <DialogTitle>
                     <div style={{ display: 'flex', alignItems: 'center' }}>
                         <img
-                            style={{ width: 225, height: 225, marginRight: 100, marginTop: 10}}
+                            style={{ width: 225, height: 225, borderRadius:110, marginRight: 100, marginTop: 10}}
                             src={data[0].ment_image}
                             alt="Profile"
                         />
