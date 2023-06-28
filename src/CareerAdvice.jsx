@@ -68,7 +68,7 @@ const CareerAdvice = () => {
                         onChange={handleDegreeChange}
                     >
                         <MenuItem value="All">All</MenuItem>
-                        <MenuItem value="Compsci">Computer Science</MenuItem>
+                        <MenuItem value="Computer Science">Computer Science</MenuItem>
                         <MenuItem value="Finance">Finance</MenuItem>
                         <MenuItem value="Law">Law</MenuItem>
                     </Select>
@@ -87,7 +87,7 @@ const CareerAdvice = () => {
                     >
                         <MenuItem value="All">All</MenuItem>
                         <MenuItem value="Auckland">Auckland</MenuItem>
-                        <MenuItem value="SF">San Francisco</MenuItem>
+                        <MenuItem value="California">California</MenuItem>
                     </Select>
                 </FormControl>
             </Box>
