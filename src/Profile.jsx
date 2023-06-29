@@ -235,7 +235,7 @@ const Profile = (props) => {
                             <Typography fontSize={30} sx={{fontWeight: 700}}> CV </Typography>
                             <Divider sx={{height: 1, width: 45, borderTop: 2, mb: 2, color: "#FFC973"}} />
                             
-                            <Stack spacing={2}>
+                            <Stack>
                                 {currUser.cvs.map((item, index) =>
                                     <Card sx={{borderRadius: "8px", minHeight: 120, backgroundColor: editing ? "#FFFFFF" : "#FFC97329", mb: 2, border: editing ? 2 : 0, borderColor: "#D9D9D9", boxShadow: 0, display: "flex"}} key={item}>
                                         {editing && 
