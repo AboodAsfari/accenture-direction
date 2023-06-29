@@ -12,7 +12,6 @@ import Jobs from './Jobs';
 import Mentor from "./Mentor";
 import Advancement from "./Advancement";
 
-
 const CareerAdvice = () => {
     const [location, setLocation] = useState('All');
     const [degree, setDegree] = useState('All');
@@ -56,9 +55,12 @@ const CareerAdvice = () => {
     };
 
     return (
-        <div style={{ marginTop: '80px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-            <Box sx={{ minWidth: 250 }}>
-                <FormControl fullWidth>
+        <div>
+        <div style={{backgroundImage: "linear-gradient(to bottom right, #7F00FF, #E100FF)", height: 350}}>
+        <h1 align="center" style={{paddingTop: 110, color: "#FFFFFF", fontSize:40, fontWeight:"bold", fontFamily:"Roboto"}}>Connect with Jobs, Mentors and see future oppurtunities!</h1>
+            <hr style = {{width:800}}></hr>
+            <div align="center" style={{marginTop: 50}}>
+                <FormControl style={{width: 600, backgroundColor: "#FFFFFF", marginRight: 10}}>
                     <InputLabel id="degree-select-label">Degree</InputLabel>
                     <Select
                         labelId="degree-select-label"
@@ -73,10 +75,7 @@ const CareerAdvice = () => {
                         <MenuItem value="Law">Law</MenuItem>
                     </Select>
                 </FormControl>
-            </Box>
-
-            <Box sx={{ minWidth: 250, mb: 2, marginTop: '20px' }}>
-                <FormControl fullWidth>
+                <FormControl style={{width: 600, backgroundColor: "#FFFFFF", marginLeft: 10}}>
                     <InputLabel id="location-select-label">Location</InputLabel>
                     <Select
                         labelId="location-select-label"
@@ -90,8 +89,9 @@ const CareerAdvice = () => {
                         <MenuItem value="California">California</MenuItem>
                     </Select>
                 </FormControl>
-            </Box>
-
+                </div>
+        </div>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <Tabs
                 value={value}
                 onChange={handleChange}
@@ -101,12 +101,13 @@ const CareerAdvice = () => {
                 variant="fullWidth"
                 style={{ width: '80%', marginTop: '30px' }}
             >
-                <Tab value="Jobs" label="Jobs" />
-                <Tab value="Mentors" label="Mentors" />
-                <Tab value="Advancement" label="Advancement" />
+                <Tab style={{fontSize:20}} value="Jobs" label="Jobs" />
+                <Tab style={{fontSize:20}}value="Mentors" label="Mentors" />
+                <Tab style={{fontSize:20}} value="Advancement" label="Advancement" />
             </Tabs>
 
             <div>{renderPage()}</div>
+        </div>
         </div>
     );
 };
