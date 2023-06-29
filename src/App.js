@@ -5,6 +5,7 @@ import {
   Typography,
   Stack,
   Button,
+  Avatar,
 } from "@mui/material";
 import LoginPage from "./LoginPage";
 import CareerAdvice from "./CareerAdvice";
@@ -64,17 +65,18 @@ const App = () => {
 
   return (
     <SessionContext.Provider value={sessionData}>
-      <AppBar position="sticky" component="nav">
+      <AppBar position="sticky" component="nav" sx={{backgroundColor: "white"}}>
           <Toolbar>
-            <EmojiEmotionsIcon />
-            <Typography variant="h6" component="div" sx={{ ml: 2, textAlign: "center" }}>
+            <img src="telegram.png" alt="D1rection Logo" width="2.5%" height="2.5%" />
+            <Typography fontSize={25} component="div" sx={{ ml: 2, textAlign: "center", color: "#742092", fontWeight: 800 }}>
                 D1rection
             </Typography>
             <Stack direction={"row"} sx={{ position: "fixed", right: 20 }}>
               { !sessionData.user ? 
                 <>
-                <Button variant="container" onClick={() => setActivePage(MainPages.LOGIN)}> Log In </Button>
-                <Button variant="container" onClick={() => setActivePage(MainPages.SIGNUP)}> Sign Up </Button>
+                <Button sx={{borderWidth: 3, borderColor: "#742092", color: "#742092", fontWeight: 700, ":hover": {backgroundColor: "#FBFBFB", borderColor: "#C858BA", color: "#C858BA"}, mr: 2}} onClick={() => setActivePage(MainPages.HOME)}> Home </Button>
+                <Button variant="outlined" sx={{borderWidth: 3, borderColor: "#742092", color: "#742092", fontWeight: 700, ":hover": {backgroundColor: "#FBFBFB", borderWidth: 3, borderColor: "#C858BA", color: "#C858BA"}, mr: 2}} onClick={() => setActivePage(MainPages.LOGIN)}> Log In </Button>
+                <Button variant="container" sx={{backgroundColor: "#742092", fontWeight: 700, ":hover": {backgroundColor: "#C858BA"}}} onClick={() => setActivePage(MainPages.SIGNUP)}> Sign Up </Button>
                 </> :
                 <>
                 <Typography sx={{alignSelf:"center", mt: 0.5}}> {sessionData.user.firstName} </Typography>
