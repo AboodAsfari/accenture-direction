@@ -51,21 +51,38 @@ class User {
 
     formatDate(inputDate) {
         let date, month, year;
-      
+        
         date = inputDate.getDate();
         month = inputDate.getMonth() + 1;
         year = inputDate.getFullYear();
-      
-          date = date
-              .toString()
-              .padStart(2, '0');
-      
-          month = month
-              .toString()
-              .padStart(2, '0');
-      
+        
+            date = date
+                .toString()
+                .padStart(2, '0');
+        
+            month = month
+                .toString()
+                .padStart(2, '0');
+        
         return `${date}/${month}/${year}`;
-      }
+    }
+
+    clone() {
+        let user = new User(
+            this.firstName,
+            this.lastName,
+            this.email,
+            this.password
+        );
+        user.bio = this.bio;
+        user.qualifications = this.qualifications;
+        user.industries = this.industries;
+        user.locations = this.locations;
+        user.cvs = this.cvs;
+        user.profilePic = this.profilePic;
+        user.memberSince = this.memberSince;
+        return user;
+    }
 }
 
 export default MockBackend;
