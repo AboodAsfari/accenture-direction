@@ -100,7 +100,8 @@ const LoginPage = (props) => {
                 </Stack>
             </Stack>
 
-            <img src="loginpic.jpg" alt="Login Art" width= "55%" height="55%" style={{ position: "absolute", right: "6%", bottom: "17%" }} />
+            <img src="loginpic.jpg" alt="Login Art" width= "40%" height="auto" style={{ position: "absolute", right: "12%", bottom: "18.5%" }} />
+            <Typography sx={{fontSize: 10, position: "absolute", right: "15.5%", bottom: "20%"}}> Image by pch.vector on Freepik </Typography>
         </Box>
     );
 };
