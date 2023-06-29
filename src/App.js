@@ -6,6 +6,7 @@ import {
   Stack,
   Button,
   Divider,
+  Fade,
 } from "@mui/material";
 import LoginPage from "./LoginPage";
 import CareerAdvice from "./CareerAdvice";
@@ -14,6 +15,7 @@ import MockBackend from "./MockBackend";
 
 import AccountMenu from "./AccountMenu";
 import Profile from "./Profile";
+import { Box } from "@mui/system";
 
 const App = () => {
   const [sessionData, setSessionData] = React.useState({
@@ -87,12 +89,29 @@ const App = () => {
           </Toolbar>
       </AppBar>
 
-      {activePage === MainPages.HOME && <CareerAdvice /> }
+      <Fade in={activePage === MainPages.HOME}>
+        <Box>
+          {activePage === MainPages.HOME && <CareerAdvice /> }
+        </Box>
+      </Fade>
+      
+      <Fade in={activePage === MainPages.LOGIN}>
+        <Box>
+          {activePage === MainPages.LOGIN && <LoginPage onClose={() => setActivePage(MainPages.HOME)} openSignup={() => setActivePage(MainPages.SIGNUP)} loadUser={loadUser} />}
+        </Box>
+      </Fade >
+      
+      <Fade in={activePage === MainPages.SIGNUP}>
+        <Box>
+          {activePage === MainPages.SIGNUP && <SignupPage onClose={() => setActivePage(MainPages.HOME)} loadUser={loadUser} />}
+        </Box>
+      </Fade>
 
-      {activePage === MainPages.LOGIN && <LoginPage onClose={() => setActivePage(MainPages.HOME)} openSignup={() => setActivePage(MainPages.SIGNUP)} loadUser={loadUser} />}
-      {activePage === MainPages.SIGNUP && <SignupPage onClose={() => setActivePage(MainPages.HOME)} loadUser={loadUser} />}
-
-      {activePage === MainPages.PROFILE && <Profile updateProfilePic={updateProfilePic} updateUser={updateUser} />}
+      <Fade in={activePage === MainPages.PROFILE}>
+        <Box>
+          {activePage === MainPages.PROFILE && <Profile updateProfilePic={updateProfilePic} updateUser={updateUser} />}
+        </Box>
+      </Fade>
     </SessionContext.Provider>
   );
 };
