@@ -52,12 +52,12 @@ const SignupPage = (props) => {
                 <Stack direction="row" spacing={5} sx={{ my: 1, mb: 5 }}>
                     {isStudent ?
                         <>
-                        <Button variant="contained" sx={{fontSize: 20, py: 3, px: 11, textTransform: "none", backgroundColor: "#742092", fontWeight: 700, ":hover": {backgroundColor: "#C858BA"}}} onClick={() => setIsStudent(true)}> Student </Button>
-                        <Button variant="outlined" sx={{fontSize: 20, py: 3, px: 10, textTransform: "none", borderWidth: 3, borderColor: "#742092", color: "#742092", fontWeight: 700, ":hover": {backgroundColor: "#FBFBFB", borderWidth: 3, borderColor: "#C858BA", color: "#C858BA"}}} onClick={() => setIsStudent(false)}> Employer </Button>
+                        <Button variant="contained" sx={{borderRadius: "8px", fontSize: 20, py: 3, px: 11, textTransform: "none", backgroundColor: "#742092", fontWeight: 700, ":hover": {backgroundColor: "#C858BA"}}} onClick={() => setIsStudent(true)}> Student </Button>
+                        <Button variant="outlined" sx={{borderRadius: "8px", fontSize: 20, py: 3, px: 10, textTransform: "none", borderWidth: 3, borderColor: "#742092", color: "#742092", fontWeight: 700, ":hover": {backgroundColor: "#FBFBFB", borderWidth: 3, borderColor: "#C858BA", color: "#C858BA"}}} onClick={() => setIsStudent(false)}> Employer </Button>
                         </> :
                         <>
-                        <Button variant="outlined" sx={{fontSize: 20, py: 3, px: 10, textTransform: "none", borderWidth: 3, borderColor: "#742092", color: "#742092", fontWeight: 700, ":hover": {backgroundColor: "#FBFBFB", borderWidth: 3, borderColor: "#C858BA", color: "#C858BA"}}} onClick={() => setIsStudent(true)}> Student </Button>
-                        <Button variant="contained" sx={{fontSize: 20, py: 3, px: 11, textTransform: "none", backgroundColor: "#742092", fontWeight: 700, ":hover": {backgroundColor: "#C858BA"}}} onClick={() => setIsStudent(false)}> Employer </Button>
+                        <Button variant="outlined" sx={{borderRadius: "8px", fontSize: 20, py: 3, px: 10, textTransform: "none", borderWidth: 3, borderColor: "#742092", color: "#742092", fontWeight: 700, ":hover": {backgroundColor: "#FBFBFB", borderWidth: 3, borderColor: "#C858BA", color: "#C858BA"}}} onClick={() => setIsStudent(true)}> Student </Button>
+                        <Button variant="contained" sx={{borderRadius: "8px", fontSize: 20, py: 3, px: 11, textTransform: "none", backgroundColor: "#742092", fontWeight: 700, ":hover": {backgroundColor: "#C858BA"}}} onClick={() => setIsStudent(false)}> Employer </Button>
                         </>
                     }
                 </Stack>
