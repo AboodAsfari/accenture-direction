@@ -104,7 +104,9 @@ const SignupPage = (props) => {
                     </Alert>
                 </Collapse>
             </Stack>
+
             <img src="signuppic.jpg" alt="Signup Art" width= "50%" height="auto" style={{ position: "absolute", right: "6%", bottom: "7.5%" }} />
+            <Typography sx={{fontSize: 10, position: "absolute", right: "8%", bottom: "12%"}}> Image by pch.vector on Freepik </Typography>
         </Box>
     );
 };
