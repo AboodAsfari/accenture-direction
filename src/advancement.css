@@ -221,6 +221,7 @@
     display: flex;
     align-items: center;
     margin-bottom: 30px;
+    padding-left: 100px;
 }
 
 .location-popup-icon {
@@ -243,6 +244,7 @@
     width: 100px;
     height: auto;
     margin-right: 10px;
+    border-radius: 50%;
 }
 
 .j-comp-popup {
@@ -301,7 +303,10 @@
     position: absolute;
     bottom: -6px;
     left: 0;
-    width: 21.1%;
+    width: 23%;
     height: 4px;
     background-color: purple;
+}
+.logo {
+    border-radius: 50%;
 }
