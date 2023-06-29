@@ -75,7 +75,7 @@ class User {
             this.password
         );
         user.bio = this.bio;
-        user.qualifications = this.qualifications;
+        this.qualifications.forEach((item) => user.addQualification(item.institute, item.degree, [...item.majors]));
         user.industries = this.industries;
         user.locations = this.locations;
         user.cvs = this.cvs;

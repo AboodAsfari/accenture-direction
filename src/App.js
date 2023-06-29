@@ -50,6 +50,16 @@ const App = () => {
     sessionData.db.getUser(sessionData.user.email).profilePic = src;
   }
 
+  const updateUser = (oldEmail) => {
+    delete sessionData.db.users[oldEmail];
+    sessionData.db.users[sessionData.user.email] = sessionData.user;
+    console.log(sessionData.db.users);
+    setSessionData(prev => ({
+      db: prev.db,
+      user: prev.user
+    }));
+  }
+
   return (
     <SessionContext.Provider value={sessionData}>
       <AppBar position="sticky" component="nav">
@@ -78,7 +88,7 @@ const App = () => {
       {activePage === MainPages.LOGIN && <LoginPage onClose={() => setActivePage(MainPages.HOME)} openSignup={() => setActivePage(MainPages.SIGNUP)} loadUser={loadUser} />}
       {activePage === MainPages.SIGNUP && <SignupPage onClose={() => setActivePage(MainPages.HOME)} loadUser={loadUser} />}
 
-      {activePage === MainPages.PROFILE && <Profile updateProfilePic={updateProfilePic} />}
+      {activePage === MainPages.PROFILE && <Profile updateProfilePic={updateProfilePic} updateUser={updateUser} />}
     </SessionContext.Provider>
   );
 };
