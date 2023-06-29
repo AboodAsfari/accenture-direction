@@ -99,6 +99,8 @@ const LoginPage = (props) => {
                     </Box>
                 </Stack>
             </Stack>
+
+            <img src="loginpic.jpg" alt="Login Art" width= "55%" height="55%" style={{ position: "absolute", right: "6%", bottom: "17%" }} />
         </Box>
     );
 };
