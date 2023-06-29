@@ -42,7 +42,8 @@ class User {
         this.locations = []; 
         this.cvs = [];
         this.profilePic = null;
-        this.memberSince = this.formatDate(new Date());
+        let dateStr = new Date().toDateString();
+        this.memberSince = dateStr.substring(dateStr.indexOf(" ") + 1);;
     }
 
     addQualification(institute, degree, majors) {

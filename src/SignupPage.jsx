@@ -44,30 +44,42 @@ const SignupPage = (props) => {
     }
 
     return (
-        <Box sx={{ ml: 15, mt: 15 }}>
-            <Typography fontSize={40}> Create an Account </Typography>
+        <Box sx={{ ml: 15, mt: 10 }}>
+            <Typography fontSize={40} sx={{fontWeight: 700}}> Create an Account </Typography>
 
-            <Typography fontSize={20}> Are you a... </Typography>
+            <Typography fontSize={24} sx={{opacity: 0.5}}> I'm a... </Typography>
             <Stack sx={{ width: "30%" }}>
-                <Stack direction="row" spacing={6.5} sx={{ my: 1}}>
-                    <Button variant={isStudent ? "contained" : "outlined"} sx={{fontSize: 20, p: 4, px: 9}} onClick={() => setIsStudent(true)}> Student </Button>
-                    <Button variant={!isStudent ? "contained" : "outlined"} sx={{fontSize: 20, p: 4, px: 8}} onClick={() => setIsStudent(false)}> Employer </Button>
+                <Stack direction="row" spacing={5} sx={{ my: 1, mb: 5 }}>
+                    {isStudent ?
+                        <>
+                        <Button variant="contained" sx={{borderRadius: "8px", fontSize: 20, py: 3, px: 11, textTransform: "none", backgroundColor: "#742092", fontWeight: 700, ":hover": {backgroundColor: "#C858BA"}}} onClick={() => setIsStudent(true)}> Student </Button>
+                        <Button variant="outlined" sx={{borderRadius: "8px", fontSize: 20, py: 3, px: 10, textTransform: "none", borderWidth: 3, borderColor: "#742092", color: "#742092", fontWeight: 700, ":hover": {backgroundColor: "#FBFBFB", borderWidth: 3, borderColor: "#C858BA", color: "#C858BA"}}} onClick={() => setIsStudent(false)}> Employer </Button>
+                        </> :
+                        <>
+                        <Button variant="outlined" sx={{borderRadius: "8px", fontSize: 20, py: 3, px: 10, textTransform: "none", borderWidth: 3, borderColor: "#742092", color: "#742092", fontWeight: 700, ":hover": {backgroundColor: "#FBFBFB", borderWidth: 3, borderColor: "#C858BA", color: "#C858BA"}}} onClick={() => setIsStudent(true)}> Student </Button>
+                        <Button variant="contained" sx={{borderRadius: "8px", fontSize: 20, py: 3, px: 11, textTransform: "none", backgroundColor: "#742092", fontWeight: 700, ":hover": {backgroundColor: "#C858BA"}}} onClick={() => setIsStudent(false)}> Employer </Button>
+                        </>
+                    }
                 </Stack>
 
-                <TextField autoFocus margin="dense" id="firstname" label="First Name" type="text" fullWidth 
-                    value={firstName} onChange={(e) => setFirstName(e.target.value)}
+                <Typography fontSize={17}> First Name </Typography>
+                <TextField autoFocus margin="dense" id="email" placeholder="John" type="text" value={firstName}
+                    onChange={(e) => setFirstName(e.target.value)} sx={{ "& .MuiOutlinedInput-root": { "&.Mui-focused fieldset": { borderColor: "#742092" }}, borderColor: "#EAEBEF", backgroundColor: "#FCFCFC", borderRadius: "12px", [`& fieldset`]: { borderRadius: "12px" } }} 
                 />
 
-                <TextField margin="dense" id="lastname" label="Last Name" type="text" fullWidth 
-                    value={lastName} onChange={(e) => setLastName(e.target.value)}
+                <Typography fontSize={17} sx={{mt: 2}}> Last Name </Typography>
+                <TextField margin="dense" id="email" placeholder="Doe" type="text" value={lastName}
+                    onChange={(e) => setLastName(e.target.value)} sx={{ "& .MuiOutlinedInput-root": { "&.Mui-focused fieldset": { borderColor: "#742092" }}, borderColor: "#EAEBEF", backgroundColor: "#FCFCFC", borderRadius: "12px", [`& fieldset`]: { borderRadius: "12px" } }} 
                 />
 
-                <TextField margin="dense" id="email" label="Email Address" type="email" value={email}
-                    onChange={(e) => setEmail(e.target.value)} 
+                <Typography fontSize={17} sx={{mt: 2}}> Email </Typography>
+                <TextField margin="dense" id="email" placeholder="example@email.com" type="email" value={email}
+                    onChange={(e) => setEmail(e.target.value)} sx={{ "& .MuiOutlinedInput-root": { "&.Mui-focused fieldset": { borderColor: "#742092" }}, borderColor: "#EAEBEF", backgroundColor: "#FCFCFC", borderRadius: "12px", [`& fieldset`]: { borderRadius: "12px" } }} 
                 />
 
-                <TextField margin="dense" id="password" label="Password" type={ showPassword ? "text" : "password" }
-                    value={password} onChange={(e) => setPassword(e.target.value)}
+                <Typography fontSize={17} sx={{mt: 2}}> Password </Typography>
+                <TextField margin="dense" id="password" placeholder="examplepass123" type={ showPassword ? "text" : "password" }
+                    value={password} onChange={(e) => setPassword(e.target.value)} sx={{ "& .MuiOutlinedInput-root": { "&.Mui-focused fieldset": { borderColor: "#742092" }}, borderColor: "#EAEBEF", backgroundColor: "#FCFCFC", borderRadius: "12px", [`& fieldset`]: { borderRadius: "12px" } }} 
                     InputProps={{ endAdornment: 
                         <InputAdornment position="end">
                             <IconButton onClick={() => setShowPassword(!showPassword)} tabIndex={-1}>
@@ -77,11 +89,11 @@ const SignupPage = (props) => {
                         style: { WebkitBoxShadow: "0 0 0 1000px transparent inset" }
                     }}
                 />
-
-                <Button variant="contained" disabled={!firstName || !lastName || !email || !password} onClick={handleSignup} sx={{ fontSize: 20, mt: 5 }}> Sign Up </Button>
+                
+                <Button variant="contained" disabled={!firstName || !lastName || !email || !password} onClick={handleSignup} sx={{ backgroundColor: "#742092", ":hover": {backgroundColor: "#C858BA"}, fontSize: 20, mt: 2, textTransform: "none", borderRadius: "12px", [`& fieldset`]: { borderRadius: "12px" }, height: 55 }}> Sign Up </Button>
 
                 <Collapse in={signupError}>
-                    <Alert severity="error" sx={{ mt: 2 }}
+                    <Alert severity="error" sx={{ mt: 2, fontWeight: 700, backgroundColor: "#FFE3B3", opacity: 0.8, ".MuiAlert-icon": { color: "#f29d0a" } }}
                         action= {
                             <IconButton color="inherit" size="small" onClick={() => setSignupError(false)}>
                                 <CloseIcon fontSize="inherit" />
@@ -92,6 +104,9 @@ const SignupPage = (props) => {
                     </Alert>
                 </Collapse>
             </Stack>
+
+            <img src="signuppic.jpg" alt="Signup Art" width= "50%" height="auto" style={{ position: "absolute", right: "6%", bottom: "7.5%" }} />
+            <Typography sx={{fontSize: 10, position: "absolute", right: "8%", bottom: "12%"}}> Image by pch.vector on Freepik </Typography>
         </Box>
     );
 };

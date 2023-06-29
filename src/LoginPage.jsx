@@ -18,6 +18,7 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import GoogleIcon from '@mui/icons-material/Google';
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
+import WavingHandIcon from '@mui/icons-material/WavingHand';
 
 const LoginPage = (props) => {
     const {
@@ -45,16 +46,21 @@ const LoginPage = (props) => {
     }
 
     return (
-        <Box sx={{ ml: 15, mt: 15 }}>
-            <Typography fontSize={40}> Welcome Back! </Typography>
-            
-            <Stack sx={{ width: "30%" }}>
-                <TextField autoFocus margin="dense" id="email" label="Email Address" type="email" value={email}
-                    onChange={(e) => setEmail(e.target.value)} 
+        <Box sx={{ ml: 15, mt: 10 }}>
+            <Stack direction="row">
+                <Typography fontSize={40} sx={{fontWeight: 700}}> Welcome Back! </Typography>
+                <WavingHandIcon sx={{ fontSize: 40, mt: 1, ml: 2 }} />
+            </Stack>
+
+            <Stack sx={{ width: "30%", mt: 5 }}>
+                <Typography fontSize={17}> Email </Typography>
+                <TextField autoFocus margin="dense" id="email" placeholder="example@email.com" type="email" value={email}
+                    onChange={(e) => setEmail(e.target.value)} sx={{ borderColor: "#EAEBEF", backgroundColor: "#FCFCFC", borderRadius: "12px", [`& fieldset`]: { borderRadius: "12px" }, "& .MuiOutlinedInput-root": { "&.Mui-focused fieldset": { borderColor: "#742092" }} }} 
                 />
 
-                <TextField margin="dense" id="password" label="Password" type={ showPassword ? "text" : "password" }
-                    value={password} onChange={(e) => setPassword(e.target.value)}
+                <Typography fontSize={17} sx={{mt: 2}}> Password </Typography>
+                <TextField margin="dense" id="password" placeholder="examplepass123" type={ showPassword ? "text" : "password" }
+                    value={password} onChange={(e) => setPassword(e.target.value)} sx={{ borderColor: "#EAEBEF", backgroundColor: "#FCFCFC", borderRadius: "12px", [`& fieldset`]: { borderRadius: "12px" }, "& .MuiOutlinedInput-root": { "&.Mui-focused fieldset": { borderColor: "#742092" }} }} 
                     InputProps={{ endAdornment: 
                         <InputAdornment position="end">
                             <IconButton onClick={() => setShowPassword(!showPassword)} tabIndex={-1}>
@@ -66,13 +72,13 @@ const LoginPage = (props) => {
                 />
 
                 <Box sx={{ display:"flex", justifyContent: "end"}}>
-                    <Button> Forgot Password? </Button>
+                    <Button sx={{fontWeight: 600, textTransform: "none", color: "#742092", ":hover": {backgroundColor: "#FBFBFB"} }}> Forgot Password? </Button>
                 </Box>
 
-                <Button variant="contained" onClick={handleLogin} sx={{ fontSize: 20, mt: 5 }}> Log In </Button>
+                <Button variant="contained" onClick={handleLogin} sx={{ backgroundColor: "#742092", ":hover": {backgroundColor: "#C858BA"}, fontSize: 20, mt: 2, textTransform: "none", borderRadius: "12px", [`& fieldset`]: { borderRadius: "12px" }, height: 55 }}> Log In </Button>
 
                 <Collapse in={loginError}>
-                    <Alert severity="error" sx={{ mt: 2 }}
+                    <Alert severity="error" sx={{ mt: 2, fontWeight: 700, backgroundColor: "#FFE3B3", opacity: 0.8, ".MuiAlert-icon": { color: "#f29d0a" } }}
                         action= {
                             <IconButton color="inherit" size="small" onClick={() => setLoginError(false)}>
                                 <CloseIcon fontSize="inherit" />
@@ -86,13 +92,16 @@ const LoginPage = (props) => {
                 <Divider sx={{ my: 5 }}> Or </Divider>
 
                 <Stack spacing={2}>
-                    <Button variant="contained" sx={{ fontSize: 20 }}> <GoogleIcon sx={{ position: "absolute", left: "20%" }} /> Log in with Google </Button>
-                    <Button variant="contained" sx={{ fontSize: 20 }}> <FacebookIcon sx={{ position: "absolute", left: "20%" }} /> Log in with Facebook </Button>
+                    <Button sx={{ textAlign: "left", color: "black", backgroundColor: "#F0F0F0", ":hover": {backgroundColor: "#F8F8F8"}, fontSize: 20, textTransform: "none", borderRadius: "12px", [`& fieldset`]: { borderRadius: "12px" }, height: 55 }}> <GoogleIcon sx={{ position: "absolute", left: "27%", mt: -0.3 }} /> Log in with Google </Button>
+                    <Button sx={{ justifyContent: "flex-start", pl: 22.6, textAlign: "left", color: "black", backgroundColor: "#F0F0F0", ":hover": {backgroundColor: "#F8F8F8"},  fontSize: 20, textTransform: "none", borderRadius: "12px", [`& fieldset`]: { borderRadius: "12px" }, height: 55 }}> <FacebookIcon sx={{ position: "absolute", left: "27%", mt: -0.3 }} /> Log in with Facebook </Button>
                     <Box sx={{ display:"flex", justifyContent: "end"}}>
-                        <Typography> Don't have an account? <Button onClick={() => { onClose(); openSignup(); }}> Sign up </Button></Typography>
+                        <Typography> Don't have an account? <Button sx={{mt: -0.5, fontWeight: 600, textTransform: "none", color: "#742092", ":hover": {backgroundColor: "#FBFBFB"}}} onClick={() => { onClose(); openSignup(); }}> Sign up </Button></Typography>
                     </Box>
                 </Stack>
             </Stack>
+
+            <img src="loginpic.jpg" alt="Login Art" width= "40%" height="auto" style={{ position: "absolute", right: "12%", bottom: "18.5%" }} />
+            <Typography sx={{fontSize: 10, position: "absolute", right: "15.5%", bottom: "20%"}}> Image by pch.vector on Freepik </Typography>
         </Box>
     );
 };
