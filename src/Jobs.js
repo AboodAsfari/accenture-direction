@@ -150,7 +150,6 @@ const Jobs = ({ degree, location, data }) => {
 
     return (
         <div className="jobs-container">
-            <h1>Test Jobs</h1>
             <div className="job-tiles-container">{jobTiles}</div>
         </div>
     );
