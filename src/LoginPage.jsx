@@ -78,7 +78,7 @@ const LoginPage = (props) => {
                 <Button variant="contained" onClick={handleLogin} sx={{ backgroundColor: "#742092", ":hover": {backgroundColor: "#C858BA"}, fontSize: 20, mt: 2, textTransform: "none", borderRadius: "12px", [`& fieldset`]: { borderRadius: "12px" }, height: 55 }}> Log In </Button>
 
                 <Collapse in={loginError}>
-                    <Alert severity="error" sx={{ mt: 2 }}
+                    <Alert severity="error" sx={{ mt: 2, fontWeight: 700, backgroundColor: "#FFE3B3", opacity: 0.8, ".MuiAlert-icon": { color: "#f29d0a" } }}
                         action= {
                             <IconButton color="inherit" size="small" onClick={() => setLoginError(false)}>
                                 <CloseIcon fontSize="inherit" />

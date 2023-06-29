@@ -93,7 +93,7 @@ const SignupPage = (props) => {
                 <Button variant="contained" disabled={!firstName || !lastName || !email || !password} onClick={handleSignup} sx={{ backgroundColor: "#742092", ":hover": {backgroundColor: "#C858BA"}, fontSize: 20, mt: 2, textTransform: "none", borderRadius: "12px", [`& fieldset`]: { borderRadius: "12px" }, height: 55 }}> Sign Up </Button>
 
                 <Collapse in={signupError}>
-                    <Alert severity="error" sx={{ mt: 2 }}
+                    <Alert severity="error" sx={{ mt: 2, fontWeight: 700, backgroundColor: "#FFE3B3", opacity: 0.8, ".MuiAlert-icon": { color: "#f29d0a" } }}
                         action= {
                             <IconButton color="inherit" size="small" onClick={() => setSignupError(false)}>
                                 <CloseIcon fontSize="inherit" />
