@@ -92,8 +92,8 @@ const LoginPage = (props) => {
                 <Divider sx={{ my: 5 }}> Or </Divider>
 
                 <Stack spacing={2}>
-                    <Button sx={{ color: "black", backgroundColor: "#F0F0F0", ":hover": {backgroundColor: "#F8F8F8"}, fontSize: 20, textTransform: "none", borderRadius: "12px", [`& fieldset`]: { borderRadius: "12px" }, height: 55 }}> <GoogleIcon sx={{ position: "absolute", left: "27%", mt: -0.5 }} /> Log in with Google </Button>
-                    <Button sx={{ color: "black", backgroundColor: "#F0F0F0", ":hover": {backgroundColor: "#F8F8F8"},  fontSize: 20, textTransform: "none", borderRadius: "12px", [`& fieldset`]: { borderRadius: "12px" }, height: 55 }}> <FacebookIcon sx={{ position: "absolute", left: "27%", mt: -0.5 }} /> Log in with Facebook </Button>
+                    <Button sx={{ textAlign: "left", color: "black", backgroundColor: "#F0F0F0", ":hover": {backgroundColor: "#F8F8F8"}, fontSize: 20, textTransform: "none", borderRadius: "12px", [`& fieldset`]: { borderRadius: "12px" }, height: 55 }}> <GoogleIcon sx={{ position: "absolute", left: "27%", mt: -0.3 }} /> Log in with Google </Button>
+                    <Button sx={{ justifyContent: "flex-start", pl: 22.6, textAlign: "left", color: "black", backgroundColor: "#F0F0F0", ":hover": {backgroundColor: "#F8F8F8"},  fontSize: 20, textTransform: "none", borderRadius: "12px", [`& fieldset`]: { borderRadius: "12px" }, height: 55 }}> <FacebookIcon sx={{ position: "absolute", left: "27%", mt: -0.3 }} /> Log in with Facebook </Button>
                     <Box sx={{ display:"flex", justifyContent: "end"}}>
                         <Typography> Don't have an account? <Button sx={{mt: -0.5, fontWeight: 600, textTransform: "none", color: "#742092", ":hover": {backgroundColor: "#FBFBFB"}}} onClick={() => { onClose(); openSignup(); }}> Sign up </Button></Typography>
                     </Box>
