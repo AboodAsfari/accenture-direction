@@ -5,7 +5,6 @@ import {
   Typography,
   Stack,
   Button,
-  Avatar,
   Divider,
 } from "@mui/material";
 import LoginPage from "./LoginPage";
@@ -13,7 +12,6 @@ import CareerAdvice from "./CareerAdvice";
 import SignupPage from "./SignupPage";
 import MockBackend from "./MockBackend";
 
-import EmojiEmotionsIcon from '@mui/icons-material/EmojiEmotions';
 import AccountMenu from "./AccountMenu";
 import Profile from "./Profile";
 
