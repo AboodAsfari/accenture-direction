@@ -39,38 +39,47 @@ const App = () => {
     }));
   }
 
-  return (
-    <>
-    <AppBar position="sticky" component="nav">
-        <Toolbar>
-          <EmojiEmotionsIcon />
-          <Typography variant="h6" component="div" sx={{ ml: 2, textAlign: "center" }}>
-              D1rection
-          </Typography>
-          <Stack direction={"row"} sx={{ position: "fixed", right: 20 }}>
-            { !sessionData.user ? 
-              <>
-              <Button variant="container" onClick={() => setActivePage(MainPages.LOGIN)}> Log In </Button>
-              <Button variant="container" onClick={() => setActivePage(MainPages.SIGNUP)}> Sign Up </Button>
-              </> :
-              <>
-              <Typography sx={{alignSelf:"center", mt: 0.5}}> {sessionData.user.firstName} </Typography>
-              <AccountMenu logOut={() => { setActivePage(MainPages.HOME); loadUser(null) }} openProfile={() => setActivePage(MainPages.PROFILE)} openSavedJobs={() => setActivePage(MainPages.SAVEDJOBS)} openSavedMentors={() => setActivePage(MainPages.SAVEDMENTORS)} />
-              </>
-            }
-          </Stack>
-        </Toolbar>
-    </AppBar>
+  const updateProfilePic = (src) => {
+    setSessionData(prev => ({
+      db: prev.db,
+      user: {
+        ...prev.user,
+        profilePic: src
+      }
+    }));
+    sessionData.db.getUser(sessionData.user.email).profilePic = src;
+  }
 
+  return (
     <SessionContext.Provider value={sessionData}>
+      <AppBar position="sticky" component="nav">
+          <Toolbar>
+            <EmojiEmotionsIcon />
+            <Typography variant="h6" component="div" sx={{ ml: 2, textAlign: "center" }}>
+                D1rection
+            </Typography>
+            <Stack direction={"row"} sx={{ position: "fixed", right: 20 }}>
+              { !sessionData.user ? 
+                <>
+                <Button variant="container" onClick={() => setActivePage(MainPages.LOGIN)}> Log In </Button>
+                <Button variant="container" onClick={() => setActivePage(MainPages.SIGNUP)}> Sign Up </Button>
+                </> :
+                <>
+                <Typography sx={{alignSelf:"center", mt: 0.5}}> {sessionData.user.firstName} </Typography>
+                <AccountMenu logOut={() => { setActivePage(MainPages.HOME); loadUser(null) }} openProfile={() => setActivePage(MainPages.PROFILE)} openSavedJobs={() => setActivePage(MainPages.SAVEDJOBS)} openSavedMentors={() => setActivePage(MainPages.SAVEDMENTORS)} />
+                </>
+              }
+            </Stack>
+          </Toolbar>
+      </AppBar>
+
       {activePage === MainPages.HOME && <CareerAdvice /> }
 
       {activePage === MainPages.LOGIN && <LoginPage onClose={() => setActivePage(MainPages.HOME)} openSignup={() => setActivePage(MainPages.SIGNUP)} loadUser={loadUser} />}
       {activePage === MainPages.SIGNUP && <SignupPage onClose={() => setActivePage(MainPages.HOME)} loadUser={loadUser} />}
 
-      {activePage === MainPages.PROFILE && <Profile />}
+      {activePage === MainPages.PROFILE && <Profile updateProfilePic={updateProfilePic} />}
     </SessionContext.Provider>
-    </>
   );
 };
 

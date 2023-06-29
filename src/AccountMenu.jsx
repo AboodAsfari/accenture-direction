@@ -1,5 +1,6 @@
 import React from "react";
 import {
+    Avatar,
     Box,
     Divider,
     IconButton,
@@ -9,10 +10,10 @@ import {
     Typography,
 } from "@mui/material";
 
+import { SessionContext } from "./App";
 import AccountCircleRoundedIcon from "@mui/icons-material/AccountCircleRounded";
 import LogoutIcon from "@mui/icons-material/Logout";
 import StarIcon from '@mui/icons-material/Star';
-import TagFacesRoundedIcon from "@mui/icons-material/TagFacesRounded";
 
 /** A dropdown menu that opens other account-related dialogs. */
 const AccountMenu = (props) => {
@@ -23,21 +24,26 @@ const AccountMenu = (props) => {
         openSavedMentors,
     } = props;
 
+    const sessionData = React.useContext(SessionContext);
+
     const [anchorEl, setAnchorEl] = React.useState(null);
     const menuOpen = Boolean(anchorEl);
 
     return (
         <Box>
             <IconButton color="inherit" onClick={(event) => setAnchorEl(event.target)}>
-                <AccountCircleRoundedIcon color="inherit" fontSize="large"/>
+                {sessionData.user.profilePic === null ? 
+                    <AccountCircleRoundedIcon color="inherit" fontSize="large"/> :
+                    <Avatar src={sessionData.user.profilePic} style={{ border: '2px solid lightgray'}}> </Avatar>
+                }
             </IconButton>
             
             <Menu open={menuOpen} anchorEl={anchorEl} onClose={() => setAnchorEl(null)} transformOrigin={{ horizontal: "right", vertical: "top" }} 
-                anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
+                anchorOrigin={{ horizontal: "right", vertical: "bottom" }} sx={{mt: 2}}
             >
                 <MenuItem onClick={() => { openProfile(); setAnchorEl(null); }}>
                     <ListItemIcon>
-                        <TagFacesRoundedIcon fontSize="small"/>
+                        <AccountCircleRoundedIcon fontSize="small"/>
                     </ListItemIcon>
                     <Typography variant="body1"> My Profile </Typography>
                 </MenuItem>

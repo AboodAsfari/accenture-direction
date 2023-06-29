@@ -5,9 +5,7 @@ import {
     Button,
     Card,
     Divider,
-    List,
-    ListItem,
-    ListItemText,
+    IconButton,
     Stack,
     Tab,
     Tabs,
@@ -20,7 +18,7 @@ import PersonIcon from '@mui/icons-material/Person';
 
 const Profile = (props) => {
     const {
-
+        updateProfilePic
     } = props;
 
     const UserPages = {
@@ -30,6 +28,18 @@ const Profile = (props) => {
     }
 
     const sessionData = React.useContext(SessionContext);
+
+    function handleAvatarChanged(e) {
+        var selectedFile = e.target.files[0];
+        var reader = new FileReader();
+        if(!selectedFile) return;
+
+        reader.onload = function(e) {
+            updateProfilePic(e.target.result);
+        };
+      
+        reader.readAsDataURL(selectedFile);
+    }
 
     return (
         <>
@@ -48,7 +58,18 @@ const Profile = (props) => {
                 <Box sx={{ width: "30%", display: "flex", justifyContent: "end", alignItems:"start" }}>
                     <Card sx={{width: "60%", m: 5, boxShadow: 15}}>
                         <Stack sx={{ alignItems: "center", m: 4}}>
-                            <Avatar sx={{ width: 128, height: 128 }}> <PersonIcon fontSize={"large"} /> </Avatar>
+                            <input accept="image/*" id="upload-avatar-pic" type="file" onChange={handleAvatarChanged} hidden />
+                            <label htmlFor="upload-avatar-pic">
+                                <IconButton component="span">
+                                    <Avatar sx={{ width: 128, height: 128 }}>
+                                        { sessionData.user.profilePic === null ? 
+                                            <PersonIcon fontSize={"large"} /> :
+                                            <img height="100%" alt="Profile Icon" src={sessionData.user.profilePic} />
+                                        } 
+
+                                    </Avatar>
+                                </IconButton>
+                            </label>
                             <Typography fontSize={20} sx={{mt: 2}}> {sessionData.user.firstName + " " + sessionData.user.lastName} </Typography>
                             <Typography fontSize={13}> Member since {sessionData.user.memberSince} </Typography>
                             <Divider sx={{height: 1, width: "55%", borderTop: 1, mb: 5, mt: 1}} />

@@ -41,6 +41,7 @@ class User {
         this.industries = []; 
         this.locations = []; 
         this.cvs = [];
+        this.profilePic = null;
         this.memberSince = this.formatDate(new Date());
     }
 
