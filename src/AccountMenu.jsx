@@ -12,8 +12,10 @@ import {
 
 import { SessionContext } from "./App";
 import AccountCircleRoundedIcon from "@mui/icons-material/AccountCircleRounded";
+import BusinessCenterRoundedIcon from '@mui/icons-material/BusinessCenterRounded';
 import LogoutIcon from "@mui/icons-material/Logout";
-import StarIcon from '@mui/icons-material/Star';
+import PeopleRoundedIcon from '@mui/icons-material/PeopleRounded';
+import PersonRoundedIcon from '@mui/icons-material/PersonRounded';
 
 /** A dropdown menu that opens other account-related dialogs. */
 const AccountMenu = (props) => {
@@ -43,19 +45,19 @@ const AccountMenu = (props) => {
             >
                 <MenuItem onClick={() => { openProfile(); setAnchorEl(null); }}>
                     <ListItemIcon>
-                        <AccountCircleRoundedIcon fontSize="small"/>
+                        <PersonRoundedIcon fontSize="small"/>
                     </ListItemIcon>
                     <Typography variant="body1"> My Profile </Typography>
                 </MenuItem>
                 <MenuItem onClick={() => { openSavedJobs(); setAnchorEl(null); }}>
                     <ListItemIcon>
-                        <StarIcon fontSize="small"/>
+                        <BusinessCenterRoundedIcon fontSize="small"/>
                     </ListItemIcon>
                     <Typography variant="body1"> Saved Jobs </Typography>
                 </MenuItem>
                 <MenuItem onClick={() => { openSavedMentors(); setAnchorEl(null); }}>
                     <ListItemIcon>
-                        <StarIcon fontSize="small"/>
+                        <PeopleRoundedIcon fontSize="small"/>
                     </ListItemIcon>
                     <Typography variant="body1"> Saved Mentors </Typography>
                 </MenuItem>
