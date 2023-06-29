@@ -64,7 +64,7 @@ const App = () => {
 
   return (
     <SessionContext.Provider value={sessionData}>
-      <AppBar position="sticky" component="nav" sx={{backgroundColor: "white"}}>
+      <AppBar position="sticky" component="nav" sx={{backgroundColor: "white", boxShadow: 0}}>
           <Toolbar>
             <img src="telegram.png" alt="D1rection Logo" width="2.5%" height="2.5%" />
             <Typography fontSize={25} component="div" sx={{ ml: 2, mt: 0.5, textAlign: "center", color: "#742092", fontWeight: 700 }}>

@@ -86,7 +86,7 @@ const Profile = (props) => {
             </Tabs>
             <Stack direction="row">
                 <Box sx={{ width: "30%", display: "flex", justifyContent: "end", alignItems:"start" }}>
-                    <Card sx={{width: "60%", m: 5, boxShadow: 15}}>
+                    <Card sx={{width: "60%", m: 5, boxShadow: 4, borderRadius: "10px"}}>
                         <Stack sx={{ alignItems: "center", m: 4}}>
                             <Box sx={{position: "relative"}}>
                                 <input accept="image/*" id="upload-avatar-pic" type="file" onChange={handleAvatarChanged} hidden />
@@ -108,7 +108,7 @@ const Profile = (props) => {
                             <Divider sx={{height: 1, width: "65%", borderTop: 1, mb: 4, mt: 1, borderColor: "#989898"}} />
                             
                             {editing ?
-                                <TextField InputProps={{style: {fontSize: 14}}} value={currUser.bio} multiline sx={{mt: -2, width: "100%" }} rows={10} 
+                                <TextField InputProps={{style: {fontSize: 14}}} value={currUser.bio} multiline sx={{[`& fieldset`]: { borderRadius: "8px" }, mt: -2, width: "100%" }} rows={10} 
                                     onChange={(e) => setCurrUser((prev) => ({...prev, bio: e.target.value, clone: prev.clone, addQualification: prev.addQualification, formatDate: prev.formatDate}))} /> :
                                 <Typography fontSize={14} sx={{fontWeight: 525, textAlign: "center"}}> {currUser.bio} </Typography>
                             }
@@ -118,7 +118,7 @@ const Profile = (props) => {
                 </Box>
 
                 <Box sx={{ width: "70%", display: "flex", justifyContent: "start", alignItems:"start" }}>
-                    <Card sx={{width: "90%", m: 5, boxShadow: 15}}>
+                    <Card sx={{width: "90%", m: 5, boxShadow: 4, borderRadius: "10px"}}>
                         {!editing && <Button sx={{position: "absolute", right: "6%", mt: 3, color: "#989898", textTransform: "none", fontSize: 18, ":hover": {backgroundColor: "#FBFBFB"} }} onClick={startEditing}> Edit </Button>}
                         <Stack sx={{m: 4}}>
                             <Typography fontSize={30} sx={{fontWeight: 700}}> Personal Details </Typography>
@@ -126,21 +126,21 @@ const Profile = (props) => {
 
                             <Typography fontSize={18}> First Name </Typography>
                             {editing ?
-                                <TextField InputProps={{style: {fontSize: 20}}} size="small" value={currUser.firstName} sx={{width: "100%", mb: 2}} 
+                                <TextField InputProps={{style: {fontSize: 20}}} size="small" value={currUser.firstName} sx={{[`& fieldset`]: { borderRadius: "8px" }, width: "100%", mb: 2}} 
                                     onChange={(e) => setCurrUser((prev) => ({...prev, firstName: e.target.value, clone: prev.clone, addQualification: prev.addQualification, formatDate: prev.formatDate}))} /> :
                                 <Typography fontSize={20} sx={{mb: 2, fontWeight: 700}}> {currUser.firstName} </Typography>
                             }
 
                             <Typography fontSize={18}> Last Name </Typography>
                             {editing ?
-                                <TextField InputProps={{style: {fontSize: 20}}} size="small" value={currUser.lastName} sx={{width: "100%", mb: 2}}
+                                <TextField InputProps={{style: {fontSize: 20}}} size="small" value={currUser.lastName} sx={{[`& fieldset`]: { borderRadius: "8px" }, width: "100%", mb: 2}}
                                     onChange={(e) => setCurrUser((prev) => ({...prev, lastName: e.target.value, clone: prev.clone, addQualification: prev.addQualification, formatDate: prev.formatDate}))} /> :
                                 <Typography fontSize={20} sx={{mb: 2, fontWeight: 700}}> {currUser.lastName} </Typography>
                             }
 
                             <Typography fontSize={18}> Email Address </Typography>
                             {editing ?
-                                <TextField InputProps={{style: {fontSize: 20}}} size="small" value={currUser.email} sx={{width: "100%", mb: 2}}
+                                <TextField InputProps={{style: {fontSize: 20}}} size="small" value={currUser.email} sx={{[`& fieldset`]: { borderRadius: "8px" }, width: "100%", mb: 2}}
                                     onChange={(e) => setCurrUser((prev) => ({...prev, email: e.target.value, clone: prev.clone, addQualification: prev.addQualification, formatDate: prev.formatDate}))} /> :
                                 <Typography fontSize={20} sx={{mb: 2, fontWeight: 700}}> {currUser.email} </Typography>
                             }
@@ -150,7 +150,7 @@ const Profile = (props) => {
                             <Divider sx={{height: 1, width: 225, borderTop: 2, mb: 2, color: "#FFC973"}} />
                             <Stack>
                                 {currUser.qualifications.map((item, index) => 
-                                    <Card sx={{minHeight: 150, backgroundColor: editing ? "#FFFFFF" : "#FFC97329", mb: 2, border: editing ? 2 : 0, borderColor: "#D9D9D9", boxShadow: 0 }} key={item}>
+                                    <Card sx={{borderRadius: "8px", minHeight: 150, backgroundColor: editing ? "#FFFFFF" : "#FFC97329", mb: 2, border: editing ? 2 : 0, borderColor: "#D9D9D9", boxShadow: 0 }} key={item}>
                                         {editing && 
                                             <IconButton sx={{position:"absolute", right: "6.5%"}} onClick={() => setCurrUser((prev) => ({...prev, qualifications: prev.qualifications.filter((item, i) => i !== index), clone: prev.clone, addQualification: prev.addQualification, formatDate: prev.formatDate}))}> 
                                                 <HighlightOffIcon  /> 
@@ -184,7 +184,7 @@ const Profile = (props) => {
                                     </Card>
                                 )}
                                 {!editing && currUser.qualifications.length === 0 && <Typography fontSize={20} sx={{ fontStyle: 'italic', fontWeight: 600 }}> No Qualifications To Display </Typography>}
-                                {editing && <Button sx={{justifySelf: "start", width: "15%", textTransform: "none", borderWidth: 2, borderColor: "#742092", color: "#742092", fontWeight: 700, ":hover": {backgroundColor: "#FBFBFB", borderWidth: 2, borderColor: "#C858BA", color: "#C858BA"}}} 
+                                {editing && <Button sx={{borderRadius: "8px", justifySelf: "start", width: "15%", textTransform: "none", borderWidth: 2, borderColor: "#742092", color: "#742092", fontWeight: 700, ":hover": {backgroundColor: "#FBFBFB", borderWidth: 2, borderColor: "#C858BA", color: "#C858BA"}}} 
                                     variant="outlined" onClick={() => setCurrUser((prev) => ({...prev, qualifications: [...prev.qualifications, {institute: "", degree: "", majors: []}], clone: prev.clone, addQualification: prev.addQualification, formatDate: prev.formatDate}))}> Add Qualification </Button>}
                             </Stack>
 
@@ -237,7 +237,7 @@ const Profile = (props) => {
                             
                             <Stack spacing={2}>
                                 {currUser.cvs.map((item, index) =>
-                                    <Card sx={{minHeight: 120, backgroundColor: editing ? "#FFFFFF" : "#FFC97329", mb: 2, border: editing ? 2 : 0, borderColor: "#D9D9D9", boxShadow: 0, display: "flex"}} key={item}>
+                                    <Card sx={{borderRadius: "8px", minHeight: 120, backgroundColor: editing ? "#FFFFFF" : "#FFC97329", mb: 2, border: editing ? 2 : 0, borderColor: "#D9D9D9", boxShadow: 0, display: "flex"}} key={item}>
                                         {editing && 
                                             <IconButton sx={{position:"absolute", right: "6.5%"}} onClick={() => setCurrUser((prev) => ({...prev, cvs: prev.cvs.filter((item, i) => i !== index), clone: prev.clone, addQualification: prev.addQualification, formatDate: prev.formatDate}))}> 
                                                 <HighlightOffIcon /> 
@@ -252,14 +252,14 @@ const Profile = (props) => {
                                 <>
                                 <input accept="application/pdf" id="upload-cv" type="file" onChange={handleCVAdded} hidden />
                                 <label htmlFor="upload-cv">
-                                    <Button component="span" sx={{justifySelf: "start", width: "15%", textTransform: "none", borderWidth: 2, borderColor: "#742092", color: "#742092", fontWeight: 700, ":hover": {backgroundColor: "#FBFBFB", borderWidth: 2, borderColor: "#C858BA", color: "#C858BA"}}} variant="outlined"> Add Document </Button>
+                                    <Button component="span" sx={{borderRadius: "8px", justifySelf: "start", width: "15%", textTransform: "none", borderWidth: 2, borderColor: "#742092", color: "#742092", fontWeight: 700, ":hover": {backgroundColor: "#FBFBFB", borderWidth: 2, borderColor: "#C858BA", color: "#C858BA"}}} variant="outlined"> Add Document </Button>
                                 </label>
                                 </>
                             }
                             
                             {editing && <Stack direction="row" sx={{justifyContent:"end", mt: 2}} spacing={2}>
-                                <Button variant="outlined" sx={{width: "10%", textTransform: "none", borderWidth: 2, borderColor: "#742092", color: "#742092", fontWeight: 700, ":hover": {backgroundColor: "#FBFBFB", borderWidth: 2, borderColor: "#C858BA", color: "#C858BA"}}} onClick={() => {window.scrollTo({top: 0, left: 0, behavior: 'smooth'}); setCurrUser(sessionData.user); setEditing(false)}}> Cancel </Button>
-                                <Button variant="contained" sx={{width: "10%", textTransform: "none", backgroundColor: "#742092", fontWeight: 700, ":hover": {backgroundColor: "#C858BA"}}} onClick={handleSave}> Save </Button>
+                                <Button variant="outlined" sx={{borderRadius: "8px", width: "10%", textTransform: "none", borderWidth: 2, borderColor: "#742092", color: "#742092", fontWeight: 700, ":hover": {backgroundColor: "#FBFBFB", borderWidth: 2, borderColor: "#C858BA", color: "#C858BA"}}} onClick={() => {window.scrollTo({top: 0, left: 0, behavior: 'smooth'}); setCurrUser(sessionData.user); setEditing(false)}}> Cancel </Button>
+                                <Button variant="contained" sx={{borderRadius: "8px", width: "10%", textTransform: "none", backgroundColor: "#742092", fontWeight: 700, ":hover": {backgroundColor: "#C858BA"}}} onClick={handleSave}> Save </Button>
                             </Stack>}
                         </Stack>
                     </Card>
@@ -294,7 +294,7 @@ const QualificationInstitute = (props) => {
     return ( 
         <>
         <Typography fontSize={16}> Institute </Typography>
-        <TextField InputProps={{style: {fontSize: 20}}} size="small" value={item.institute} sx={{width: "90%", mb: 2}} 
+        <TextField InputProps={{style: {fontSize: 20}}} size="small" value={item.institute} sx={{[`& fieldset`]: { borderRadius: "8px" }, width: "90%", mb: 2}} 
             onChange={(e) => setCurrUser((prev) => { item.institute = e.target.value; return ({...prev, qualifications: [...prev.qualifications], clone: prev.clone, addQualification: prev.addQualification, formatDate: prev.formatDate})})} />
         </>
     );
@@ -309,7 +309,7 @@ const QualificationDegree = (props) => {
     return ( 
         <>
         <Typography fontSize={16}> Degree </Typography>
-        <TextField InputProps={{style: {fontSize: 20}}} size="small" value={item.degree} sx={{width: "90%", mb: 2}} 
+        <TextField InputProps={{style: {fontSize: 20}}} size="small" value={item.degree} sx={{[`& fieldset`]: { borderRadius: "8px" }, width: "90%", mb: 2}} 
             onChange={(e) => setCurrUser((prev) => { item.degree = e.target.value; return ({...prev, qualifications: [...prev.qualifications], clone: prev.clone, addQualification: prev.addQualification, formatDate: prev.formatDate})})} />
         </>
     );
