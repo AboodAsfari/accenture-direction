@@ -31,7 +31,7 @@ const AccountMenu = (props) => {
 
     return (
         <Box>
-            <IconButton color="inherit" onClick={(event) => setAnchorEl(event.target)}>
+            <IconButton color="#1C1C1C" onClick={(event) => setAnchorEl(event.target)}>
                 {sessionData.user.profilePic === null ? 
                     <AccountCircleRoundedIcon color="inherit" fontSize="large"/> :
                     <Avatar src={sessionData.user.profilePic} style={{ border: '2px solid lightgray'}}> </Avatar>

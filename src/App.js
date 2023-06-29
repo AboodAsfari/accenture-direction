@@ -6,6 +6,7 @@ import {
   Stack,
   Button,
   Avatar,
+  Divider,
 } from "@mui/material";
 import LoginPage from "./LoginPage";
 import CareerAdvice from "./CareerAdvice";
@@ -72,14 +73,15 @@ const App = () => {
                 D1rection
             </Typography>
             <Stack direction={"row"} sx={{ position: "fixed", right: 20 }}>
+              <Button sx={{textTransform: "none", borderWidth: 3, borderColor: "#742092", color: "#1C1C1C", fontWeight: 700, ":hover": {backgroundColor: "#FBFBFB", borderColor: "#C858BA"}, mr: 2}} onClick={() => setActivePage(MainPages.HOME)}> Home </Button>
+              <Divider orientation="vertical" sx={{mr: 3, borderWidth: 1, borderColor: "#1C1C1C", height: 35, alignSelf:"center"}} />
               { !sessionData.user ? 
                 <>
-                <Button sx={{borderWidth: 3, borderColor: "#742092", color: "#1C1C1C", fontWeight: 700, ":hover": {backgroundColor: "#FBFBFB", borderColor: "#C858BA"}, mr: 2}} onClick={() => setActivePage(MainPages.HOME)}> Home </Button>
-                <Button variant="outlined" sx={{borderWidth: 3, borderColor: "#742092", color: "#742092", fontWeight: 700, ":hover": {backgroundColor: "#FBFBFB", borderWidth: 3, borderColor: "#C858BA", color: "#C858BA"}, mr: 2}} onClick={() => setActivePage(MainPages.LOGIN)}> Log In </Button>
-                <Button variant="container" sx={{backgroundColor: "#742092", fontWeight: 700, ":hover": {backgroundColor: "#C858BA"}}} onClick={() => setActivePage(MainPages.SIGNUP)}> Sign Up </Button>
+                <Button variant="outlined" sx={{textTransform: "none", borderWidth: 3, borderColor: "#742092", color: "#742092", fontWeight: 700, ":hover": {backgroundColor: "#FBFBFB", borderWidth: 3, borderColor: "#C858BA", color: "#C858BA"}, mr: 2}} onClick={() => setActivePage(MainPages.LOGIN)}> Log In </Button>
+                <Button variant="container" sx={{textTransform: "none", backgroundColor: "#742092", fontWeight: 700, ":hover": {backgroundColor: "#C858BA"}}} onClick={() => setActivePage(MainPages.SIGNUP)}> Sign Up </Button>
                 </> :
                 <>
-                <Typography sx={{alignSelf:"center", mt: 0.5}}> {sessionData.user.firstName} </Typography>
+                <Typography sx={{mr: 1, fontSize: 14, color: "#1C1C1C", fontWeight: 600, alignSelf:"center", mt: 0.3}}> {sessionData.user.firstName} </Typography>
                 <AccountMenu logOut={() => { setActivePage(MainPages.HOME); loadUser(null) }} openProfile={() => setActivePage(MainPages.PROFILE)} openSavedJobs={() => setActivePage(MainPages.SAVEDJOBS)} openSavedMentors={() => setActivePage(MainPages.SAVEDMENTORS)} />
                 </>
               }
