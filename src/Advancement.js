@@ -3,6 +3,7 @@ import './advancement.css';
 
 const CourseTile = ({ course, jobCompany }) => {
 
+    //just changing to issue a pull request
     const [open, setOpen] = useState(false);
     const [selectedCourse, setSelectedCourse] = useState(null);
     const handleApply = (courseUrl) => {
