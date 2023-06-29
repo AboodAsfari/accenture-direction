@@ -64,6 +64,7 @@ const Profile = (props) => {
     const handleSave = () => {
         window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
         let oldEmail = sessionData.user.email; 
+        currUser.profilePic = sessionData.user.profilePic;
         sessionData.user = currUser;
         updateUser(oldEmail);
         setEditing(false);
@@ -106,6 +107,7 @@ const Profile = (props) => {
                                     onChange={(e) => setCurrUser((prev) => ({...prev, bio: e.target.value, clone: prev.clone, addQualification: prev.addQualification, formatDate: prev.formatDate}))} /> :
                                 <Typography fontSize={13}> {currUser.bio} </Typography>
                             }
+                            {!editing && currUser.bio === "" && <Typography fontSize={16} sx={{ fontStyle: 'italic' }}> No Bio, Press Edit to Get Started! </Typography>}
                         </Stack>
                     </Card>
                 </Box>
@@ -176,6 +178,7 @@ const Profile = (props) => {
                                         </Stack>
                                     </Card>
                                 )}
+                                {!editing && currUser.qualifications.length === 0 && <Typography fontSize={20} sx={{ fontStyle: 'italic' }}> No Qualifications To Display </Typography>}
                                 {editing && <Button sx={{justifySelf: "start", width: "20%"}} variant="outlined" onClick={() => setCurrUser((prev) => ({...prev, qualifications: [...prev.qualifications, {institute: "", degree: "", majors: []}], clone: prev.clone, addQualification: prev.addQualification, formatDate: prev.formatDate}))}> Add Qualification </Button>}
                             </Stack>
 
@@ -196,6 +199,7 @@ const Profile = (props) => {
                                     <Typography fontSize={20} sx={{ml: 1}}> {item} </Typography>
                                 </Stack>
                             )}
+                            {!editing && currUser.industries.length === 0 && <Typography fontSize={16} sx={{ fontStyle: 'italic' }}> No Locations Added </Typography>}
                             {editing && <Stack direction="row" sx={{ alignItems: "center" }}>
                                 <CircleIcon sx={{ fontSize: 12 }} />
                                 <TextField value={newIndustry} variant="standard" InputProps={{style: {fontSize: 20}}} size="small" sx={{width: "30%", ml: 1}}
@@ -214,6 +218,7 @@ const Profile = (props) => {
                                     <Typography fontSize={20} sx={{ml: 1}}> {item} </Typography>
                                 </Stack>
                             )}
+                            {!editing && currUser.locations.length === 0 && <Typography fontSize={16} sx={{ fontStyle: 'italic' }}> No Locations Added </Typography>}
                             {editing && <Stack direction="row" sx={{ alignItems: "center" }}>
                                 <CircleIcon sx={{ fontSize: 12 }} />
                                 <TextField value={newLocation} variant="standard" InputProps={{style: {fontSize: 20}}} size="small" sx={{width: "30%", ml: 1}}
@@ -235,6 +240,7 @@ const Profile = (props) => {
                                         <Typography fontSize={20} sx={{ml: 2, alignSelf: "center"}}> {item} </Typography>
                                     </Card>
                                 )}
+                                {!editing && currUser.cvs.length === 0 && <Typography fontSize={20} sx={{ fontStyle: 'italic' }}> No CVs Added </Typography>}
                                 {editing && 
                                     <>
                                     <input accept="application/pdf" id="upload-cv" type="file" onChange={handleCVAdded} hidden />

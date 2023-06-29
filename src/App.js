@@ -35,7 +35,7 @@ const App = () => {
   const loadUser = (user) => {
     setSessionData(prev => ({
       db: prev.db,
-      user: user
+      user: user, 
     }));
   }
 
@@ -44,7 +44,10 @@ const App = () => {
       db: prev.db,
       user: {
         ...prev.user,
-        profilePic: src
+        profilePic: src, 
+        clone: prev.user.clone, 
+        addQualification: prev.user.addQualification, 
+        formatDate: prev.user.formatDate
       }
     }));
     sessionData.db.getUser(sessionData.user.email).profilePic = src;
@@ -53,10 +56,9 @@ const App = () => {
   const updateUser = (oldEmail) => {
     delete sessionData.db.users[oldEmail];
     sessionData.db.users[sessionData.user.email] = sessionData.user;
-    console.log(sessionData.db.users);
     setSessionData(prev => ({
       db: prev.db,
-      user: prev.user
+      user: prev.user, 
     }));
   }
 

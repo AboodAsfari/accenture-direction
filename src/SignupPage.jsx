@@ -54,11 +54,11 @@ const SignupPage = (props) => {
                     <Button variant={!isStudent ? "contained" : "outlined"} sx={{fontSize: 20, p: 4, px: 8}} onClick={() => setIsStudent(false)}> Employer </Button>
                 </Stack>
 
-                <TextField autoFocus margin="dense" id="firstname" label="Last Name" type="text" fullWidth 
+                <TextField autoFocus margin="dense" id="firstname" label="First Name" type="text" fullWidth 
                     value={firstName} onChange={(e) => setFirstName(e.target.value)}
                 />
 
-                <TextField margin="dense" id="lastname" label="First Name" type="text" fullWidth 
+                <TextField margin="dense" id="lastname" label="Last Name" type="text" fullWidth 
                     value={lastName} onChange={(e) => setLastName(e.target.value)}
                 />
 
