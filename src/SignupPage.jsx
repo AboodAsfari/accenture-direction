@@ -64,22 +64,22 @@ const SignupPage = (props) => {
 
                 <Typography fontSize={17}> First Name </Typography>
                 <TextField autoFocus margin="dense" id="email" placeholder="John" type="text" value={firstName}
-                    onChange={(e) => setFirstName(e.target.value)} sx={{ borderColor: "#EAEBEF", backgroundColor: "#FCFCFC", borderRadius: "12px", [`& fieldset`]: { borderRadius: "12px" } }} 
+                    onChange={(e) => setFirstName(e.target.value)} sx={{ "& .MuiOutlinedInput-root": { "&.Mui-focused fieldset": { borderColor: "#742092" }}, borderColor: "#EAEBEF", backgroundColor: "#FCFCFC", borderRadius: "12px", [`& fieldset`]: { borderRadius: "12px" } }} 
                 />
 
                 <Typography fontSize={17} sx={{mt: 2}}> Last Name </Typography>
                 <TextField margin="dense" id="email" placeholder="Doe" type="text" value={lastName}
-                    onChange={(e) => setLastName(e.target.value)} sx={{ borderColor: "#EAEBEF", backgroundColor: "#FCFCFC", borderRadius: "12px", [`& fieldset`]: { borderRadius: "12px" } }} 
+                    onChange={(e) => setLastName(e.target.value)} sx={{ "& .MuiOutlinedInput-root": { "&.Mui-focused fieldset": { borderColor: "#742092" }}, borderColor: "#EAEBEF", backgroundColor: "#FCFCFC", borderRadius: "12px", [`& fieldset`]: { borderRadius: "12px" } }} 
                 />
 
                 <Typography fontSize={17} sx={{mt: 2}}> Email </Typography>
                 <TextField margin="dense" id="email" placeholder="example@email.com" type="email" value={email}
-                    onChange={(e) => setEmail(e.target.value)} sx={{ borderColor: "#EAEBEF", backgroundColor: "#FCFCFC", borderRadius: "12px", [`& fieldset`]: { borderRadius: "12px" } }} 
+                    onChange={(e) => setEmail(e.target.value)} sx={{ "& .MuiOutlinedInput-root": { "&.Mui-focused fieldset": { borderColor: "#742092" }}, borderColor: "#EAEBEF", backgroundColor: "#FCFCFC", borderRadius: "12px", [`& fieldset`]: { borderRadius: "12px" } }} 
                 />
 
                 <Typography fontSize={17} sx={{mt: 2}}> Password </Typography>
                 <TextField margin="dense" id="password" placeholder="examplepass123" type={ showPassword ? "text" : "password" }
-                    value={password} onChange={(e) => setPassword(e.target.value)} sx={{ borderColor: "#EAEBEF", backgroundColor: "#FCFCFC", borderRadius: "12px", [`& fieldset`]: { borderRadius: "12px" } }} 
+                    value={password} onChange={(e) => setPassword(e.target.value)} sx={{ "& .MuiOutlinedInput-root": { "&.Mui-focused fieldset": { borderColor: "#742092" }}, borderColor: "#EAEBEF", backgroundColor: "#FCFCFC", borderRadius: "12px", [`& fieldset`]: { borderRadius: "12px" } }} 
                     InputProps={{ endAdornment: 
                         <InputAdornment position="end">
                             <IconButton onClick={() => setShowPassword(!showPassword)} tabIndex={-1}>

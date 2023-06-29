@@ -55,12 +55,12 @@ const LoginPage = (props) => {
             <Stack sx={{ width: "30%", mt: 5 }}>
                 <Typography fontSize={17}> Email </Typography>
                 <TextField autoFocus margin="dense" id="email" placeholder="example@email.com" type="email" value={email}
-                    onChange={(e) => setEmail(e.target.value)} sx={{ borderColor: "#EAEBEF", backgroundColor: "#FCFCFC", borderRadius: "12px", [`& fieldset`]: { borderRadius: "12px" } }} 
+                    onChange={(e) => setEmail(e.target.value)} sx={{ borderColor: "#EAEBEF", backgroundColor: "#FCFCFC", borderRadius: "12px", [`& fieldset`]: { borderRadius: "12px" }, "& .MuiOutlinedInput-root": { "&.Mui-focused fieldset": { borderColor: "#742092" }} }} 
                 />
 
                 <Typography fontSize={17} sx={{mt: 2}}> Password </Typography>
                 <TextField margin="dense" id="password" placeholder="examplepass123" type={ showPassword ? "text" : "password" }
-                    value={password} onChange={(e) => setPassword(e.target.value)} sx={{ borderColor: "#EAEBEF", backgroundColor: "#FCFCFC", borderRadius: "12px", [`& fieldset`]: { borderRadius: "12px" } }} 
+                    value={password} onChange={(e) => setPassword(e.target.value)} sx={{ borderColor: "#EAEBEF", backgroundColor: "#FCFCFC", borderRadius: "12px", [`& fieldset`]: { borderRadius: "12px" }, "& .MuiOutlinedInput-root": { "&.Mui-focused fieldset": { borderColor: "#742092" }} }} 
                     InputProps={{ endAdornment: 
                         <InputAdornment position="end">
                             <IconButton onClick={() => setShowPassword(!showPassword)} tabIndex={-1}>
@@ -95,7 +95,7 @@ const LoginPage = (props) => {
                     <Button sx={{ color: "black", backgroundColor: "#F0F0F0", ":hover": {backgroundColor: "#F8F8F8"}, fontSize: 20, textTransform: "none", borderRadius: "12px", [`& fieldset`]: { borderRadius: "12px" }, height: 55 }}> <GoogleIcon sx={{ position: "absolute", left: "27%", mt: -0.5 }} /> Log in with Google </Button>
                     <Button sx={{ color: "black", backgroundColor: "#F0F0F0", ":hover": {backgroundColor: "#F8F8F8"},  fontSize: 20, textTransform: "none", borderRadius: "12px", [`& fieldset`]: { borderRadius: "12px" }, height: 55 }}> <FacebookIcon sx={{ position: "absolute", left: "27%", mt: -0.5 }} /> Log in with Facebook </Button>
                     <Box sx={{ display:"flex", justifyContent: "end"}}>
-                        <Typography> Don't have an account? <Button sx={{fontWeight: 600, textTransform: "none", color: "#742092", ":hover": {backgroundColor: "#FBFBFB"}}} onClick={() => { onClose(); openSignup(); }}> Sign up </Button></Typography>
+                        <Typography> Don't have an account? <Button sx={{mt: -0.5, fontWeight: 600, textTransform: "none", color: "#742092", ":hover": {backgroundColor: "#FBFBFB"}}} onClick={() => { onClose(); openSignup(); }}> Sign up </Button></Typography>
                     </Box>
                 </Stack>
             </Stack>
