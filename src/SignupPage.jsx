@@ -63,7 +63,7 @@ const SignupPage = (props) => {
                 </Stack>
 
                 <Typography fontSize={17}> First Name </Typography>
-                <TextField margin="dense" id="email" placeholder="John" type="text" value={firstName}
+                <TextField autoFocus margin="dense" id="email" placeholder="John" type="text" value={firstName}
                     onChange={(e) => setFirstName(e.target.value)} sx={{ borderColor: "#EAEBEF", backgroundColor: "#FCFCFC", borderRadius: "12px", [`& fieldset`]: { borderRadius: "12px" } }} 
                 />
 
