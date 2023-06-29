@@ -49,13 +49,13 @@ const AccountMenu = (props) => {
                     </ListItemIcon>
                     <Typography variant="body1"> My Profile </Typography>
                 </MenuItem>
-                <MenuItem onClick={() => { openSavedJobs(); setAnchorEl(null); }}>
+                <MenuItem onClick={() => { setAnchorEl(null); }}>
                     <ListItemIcon>
                         <BusinessCenterRoundedIcon fontSize="small"/>
                     </ListItemIcon>
                     <Typography variant="body1"> Saved Jobs </Typography>
                 </MenuItem>
-                <MenuItem onClick={() => { openSavedMentors(); setAnchorEl(null); }}>
+                <MenuItem onClick={() => { setAnchorEl(null); }}>
                     <ListItemIcon>
                         <PeopleRoundedIcon fontSize="small"/>
                     </ListItemIcon>
